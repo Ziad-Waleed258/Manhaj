@@ -1,0 +1,6 @@
+@Manhaj_HostAddress = http://localhost:5095
+
+GET {{Manhaj_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
