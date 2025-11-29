@@ -1,0 +1,113 @@
+@{
+    ViewData["Title"] = "إضافة سؤال";
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div class="section-header">
+            <h2 class="section-title">إضافة سؤال جديد</h2>
+        </div>
+
+        <div class="dashboard-card">
+            <form asp-action="AddQuestion" method="post">
+                <input type="hidden" name="quizId" value="@ViewBag.QuizId" />
+                <input type="hidden" name="trueAnswer" id="trueAnswerInput" />
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                
+                <div style="text-align: left; margin-bottom: 15px;">
+                    <a asp-action="Details" asp-route-id="@ViewBag.QuizId" class="btn btn-outline-secondary btn-sm">
+                        &larr; تم الانتهاء / عودة للاختبار
+                    </a>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 600;">نص السؤال</label>
+                    <input name="content" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" required />
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 600;">الدرجة (Points)</label>
+                    <input name="points" type="number" step="0.5" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" value="1" required />
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label class="form-label" style="display: block; margin-bottom: 8px; font-weight: 600;">الخيارات (اختر الإجابة الصحيحة)</label>
+                    
+                    <div id="options-container">
+                        <div class="option-row" style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">
+                            <input type="radio" name="correctOptionIndex" value="0" checked />
+                            <input name="options" class="form-control" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" placeholder="الخيار 1" required />
+                        </div>
+                        <div class="option-row" style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">
+                            <input type="radio" name="correctOptionIndex" value="1" />
+                            <input name="options" class="form-control" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" placeholder="الخيار 2" required />
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="add-option-btn" class="btn btn-outline" style="margin-top: 10px; font-size: 14px;">+ إضافة خيار آخر</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 16px;">حفظ السؤال</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    function updateTrueAnswer() {
+        const rows = document.querySelectorAll('.option-row');
+        let trueAnswer = "";
+        
+        rows.forEach(row => {
+            const radio = row.querySelector('input[type="radio"]');
+            const input = row.querySelector('input[name="options"]');
+            
+            if (radio.checked && input) {
+                trueAnswer = input.value;
+            }
+        });
+        
+        document.getElementById('trueAnswerInput').value = trueAnswer;
+    }
+
+    // Update on any change in the options container
+    document.getElementById('options-container').addEventListener('input', function(e) {
+        updateTrueAnswer();
+    });
+    
+    document.getElementById('options-container').addEventListener('change', function(e) {
+        updateTrueAnswer();
+    });
+
+    document.getElementById('add-option-btn').addEventListener('click', function() {
+        const container = document.getElementById('options-container');
+        const index = container.children.length;
+        
+        const div = document.createElement('div');
+        div.className = 'option-row';
+        div.style.cssText = 'display: flex; gap: 10px; margin-bottom: 10px; align-items: center;';
+        
+        div.innerHTML = `
+            <input type="radio" name="correctOptionIndex" value="${index}" onchange="updateTrueAnswer()" />
+            <input name="options" class="form-control" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" placeholder="الخيار ${index + 1}" required oninput="updateTrueAnswer()" />
+            <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.remove(); updateTrueAnswer();" style="padding: 5px 10px;">×</button>
+        `;
+        
+        container.appendChild(div);
+    });
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+        updateTrueAnswer(); // Ensure it's updated one last time
+        
+        const trueAnswer = document.getElementById('trueAnswerInput').value;
+        if (!trueAnswer) {
+            e.preventDefault();
+            alert("Please select a correct answer and ensure the option text is not empty.");
+        }
+    });
+    
+    // Initialize on load
+    updateTrueAnswer();
+</script>

@@ -1,0 +1,103 @@
+@{
+    ViewData["Title"] = "إدارة المستخدمين";
+    Layout = "_DashboardLayout";
+    var students = ViewBag.Students as List<Manhaj.Models.Student>;
+    var teachers = ViewBag.Teachers as List<Manhaj.Models.Teacher>;
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-header">
+            <h2 class="section-title">إدارة المستخدمين</h2>
+            <p class="section-subtitle">عرض وإدارة حسابات الطلاب والمعلمين</p>
+        </div>
+
+        <div class="dashboard-card" style="margin-bottom: 40px;">
+            <h3 class="section-title" style="font-size: 24px; margin-bottom: 20px; color: var(--primary-color);">المعلمون (@teachers.Count)</h3>
+            
+            @if (teachers.Any())
+            {
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--background-gray); font-weight: 600;">
+                                <th style="padding: 12px; text-align: right;">الاسم</th>
+                                <th style="padding: 12px; text-align: right;">البريد الإلكتروني</th>
+                                <th style="padding: 12px; text-align: right;">التخصص</th>
+                                <th style="padding: 12px; text-align: right;">رقم الهاتف</th>
+                                <th style="padding: 12px; text-align: right;">عدد الدورات</th>
+                                <th style="padding: 12px; text-align: right;">إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var teacher in teachers)
+                            {
+                                <tr style="border-bottom: 1px solid #e0e0e0;">
+                                    <td style="padding: 12px;">@teacher.FirstName @teacher.LastName</td>
+                                    <td style="padding: 12px;">@teacher.Email</td>
+                                    <td style="padding: 12px;">@teacher.Specialization</td>
+                                    <td style="padding: 12px;">@teacher.Phone</td>
+                                    <td style="padding: 12px;">@teacher.Courses?.Count</td>
+                                    <td style="padding: 12px;">
+                                        <form asp-action="DeleteTeacher" asp-route-id="@teacher.Id" method="post" onsubmit="return confirm('هل أنت متأكد من حذف هذا المعلم؟');" style="display:inline;">
+                                            <button type="submit" class="btn btn-outline" style="color: #dc3545; border-color: #dc3545; padding: 5px 10px; font-size: 12px;">
+                                                🗑️ حذف
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p style="text-align: center; color: var(--text-secondary);">لا يوجد معلمون مسجلون</p>
+            }
+        </div>
+
+        <div class="dashboard-card">
+            <h3 class="section-title" style="font-size: 24px; margin-bottom: 20px; color: var(--secondary-color);">الطلاب (@students.Count)</h3>
+            
+            @if (students.Any())
+            {
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--background-gray); font-weight: 600;">
+                                <th style="padding: 12px; text-align: right;">الاسم</th>
+                                <th style="padding: 12px; text-align: right;">البريد الإلكتروني</th>
+                                <th style="padding: 12px; text-align: right;">المستوى الدراسي</th>
+                                <th style="padding: 12px; text-align: right;">رقم الهاتف</th>
+                                <th style="padding: 12px; text-align: right;">إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var student in students)
+                            {
+                                <tr style="border-bottom: 1px solid #e0e0e0;">
+                                    <td style="padding: 12px;">@student.FirstName @student.LastName</td>
+                                    <td style="padding: 12px;">@student.Email</td>
+                                    <td style="padding: 12px;">@student.Level</td>
+                                    <td style="padding: 12px;">@student.Phone</td>
+                                    <td style="padding: 12px;">
+                                        <form asp-action="DeleteStudent" asp-route-id="@student.Id" method="post" onsubmit="return confirm('هل أنت متأكد من حذف هذا الطالب؟');" style="display:inline;">
+                                            <button type="submit" class="btn btn-outline" style="color: #dc3545; border-color: #dc3545; padding: 5px 10px; font-size: 12px;">
+                                                🗑️ حذف
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p style="text-align: center; color: var(--text-secondary);">لا يوجد طلاب مسجلون</p>
+            }
+        </div>
+    </div>
+</section>

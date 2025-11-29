@@ -1,0 +1,66 @@
+@model IEnumerable<Manhaj.Models.Blacklist>
+
+@{
+    ViewData["Title"] = "القائمة السوداء";
+    Layout = "_DashboardLayout";
+}
+
+<div class="content-header">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h2 class="heading-md" style="color: var(--primary-blue);">القائمة السوداء</h2>
+            <p class="body-md" style="color: var(--text-secondary);">إدارة المستخدمين المحظورين</p>
+        </div>
+    </div>
+</div>
+
+<div class="content-body">
+    <div class="dashboard-card">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>البريد الإلكتروني</th>
+                            <th>سبب الحظر</th>
+                            <th>تاريخ الحظر</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Email</td>
+                                <td>@(item.Reason ?? "غير محدد")</td>
+                                <td>@item.AddedDate.ToString("yyyy-MM-dd")</td>
+                                <td>
+                                    <form asp-action="RemoveFromBlacklist" asp-route-id="@item.Id" method="post" style="display:inline;">
+                                        <button type="submit" class="btn btn-sm btn-outline" style="color: #dc3545; border-color: #dc3545;" onclick="return confirm('هل أنت متأكد من إزالة هذا البريد من القائمة السوداء؟')">
+                                            إزالة الحظر
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+                <div style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;">🚫</div>
+                <p>القائمة السوداء فارغة</p>
+            </div>
+        }
+    </div>
+</div>

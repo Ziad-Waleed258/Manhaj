@@ -1,0 +1,54 @@
+@model List<Manhaj.Models.Course_Registration>
+@{
+    ViewData["Title"] = "دوراتي";
+    Layout = "_DashboardLayout";
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-header">
+            <h2 class="section-title">دوراتي المسجلة</h2>
+            <p class="section-subtitle">تابع تقدمك في الدورات التي سجلت فيها</p>
+        </div>
+
+        @if (Model.Any())
+        {
+            <div class="features-grid">
+                @foreach (var registration in Model)
+                {
+                    <div class="feature-card" style="cursor: pointer; position: relative;">
+                        <div class="feature-icon">📚</div>
+                        <h3 class="feature-title">@registration.Course.Title</h3>
+                        <p class="feature-description">@(registration.Course.Description ?? "لا يوجد وصف")</p>
+                        
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e0e0e0;">
+                            <p style="color: var(--text-secondary); margin-bottom: 8px;">
+                                <strong>المعلم:</strong> @registration.Course.Teacher.FirstName @registration.Course.Teacher.LastName
+                            </p>
+                            <p style="color: var(--text-secondary); margin-bottom: 8px;">
+                                <strong>تاريخ التسجيل:</strong> @(registration.EnrollmentDate?.ToShortDateString() ?? "-")
+                            </p>
+                            <p style="color: var(--text-secondary); margin-bottom: 8px;">
+                                <strong>عدد المحاضرات:</strong> @registration.Course.Lectures.Count
+                            </p>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                                    <a class="btn btn-primary" style="width: 100%; display: block; text-align: center;text-decoration:none;" 
+                               asp-controller="Student" asp-action="Course" asp-route-id="@registration.CourseID">
+                                متابعة الدورة
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div style="text-align: center; padding: 60px 20px;">
+                <p style="font-size: 18px; color: var(--text-secondary);">لم تقم بالتسجيل في أي دورة بعد</p>
+                    <a class="btn btn-primary" asp-controller="Student" asp-action="BrowseCourses" style="margin-top: 20px;text-decoration:none;">تصفح الدورات المتاحة</a>
+            </div>
+        }
+    </div>
+</section>

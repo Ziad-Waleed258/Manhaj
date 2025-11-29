@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - منهج</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container" onclick="window.location.href='/'" style="cursor: pointer;">
+            <img src="~/images/logo.png" alt="Manhaj" style="height: 80px; width: auto;">
+        </div>
+        <div class="nav-links">
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                @if (User.IsInRole("Student"))
+                {
+                    <a class="nav-link" asp-controller="Student" asp-action="Dashboard">لوحة التحكم</a>
+                    <a class="nav-link" asp-controller="Student" asp-action="Courses">دوراتي</a>
+                    <a class="nav-link" asp-controller="Student" asp-action="BrowseCourses">تصفح الدورات</a>
+                }
+                else if (User.IsInRole("Teacher"))
+                {
+                    <a class="nav-link" asp-controller="Teacher" asp-action="Dashboard">لوحة التحكم</a>
+                    <a class="nav-link" asp-controller="Teacher" asp-action="Courses">دوراتي</a>
+                }
+                else if (User.IsInRole("Admin"))
+                {
+                    <a class="nav-link" asp-controller="Admin" asp-action="Dashboard">لوحة التحكم</a>
+                }
+                <a class="nav-link" asp-controller="Account" asp-action="Profile">مرحباً، @User.Identity.Name</a>
+                <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-primary btn-small">تسجيل الخروج</button>
+                </form>
+            }
+            else
+            {
+                <a class="nav-link" asp-controller="Home" asp-action="Index">الرئيسية</a>
+                <a class="nav-link" href="#about">من نحن</a>
+                <a class="nav-link" href="#how-it-works">كيف يعمل</a>
+                <a class="nav-link" href="#contact">تواصل معنا</a>
+                    <a class="btn btn-primary btn-small" asp-controller="Account" asp-action="Login"  style="text-decoration:none;">تسجيل الدخول</a>
+            }
+        </div>
+    </nav>
+
+    <main>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success" style="background: #d4edda; color: #155724; padding: 15px; margin: 20px auto; max-width: 1200px; border-radius: 8px; border: 1px solid #c3e6cb;">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger" style="background: #f8d7da; color: #721c24; padding: 15px; margin: 20px auto; max-width: 1200px; border-radius: 8px; border: 1px solid #f5c6cb;">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+        @RenderBody()
+    </main>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="~/js/app.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

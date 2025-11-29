@@ -1,0 +1,56 @@
+@model Manhaj.Models.Quiz
+
+@{
+    ViewData["Title"] = "إنشاء اختبار";
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <div class="section-header">
+            <h2 class="section-title">إنشاء اختبار جديد</h2>
+            <p class="section-subtitle">أضف اختباراً جديداً للمحاضرة</p>
+        </div>
+
+        <div class="dashboard-card">
+            <form asp-controller="Quiz" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+                <input type="hidden" name="LectureId" value="@ViewBag.LectureId" />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label asp-for="Title" class="form-label" style="display: block; margin-bottom: 8px; font-weight: 600;">عنوان الاختبار</label>
+                    <input asp-for="Title" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" placeholder="مثال: اختبار الوحدة الأولى" />
+                    <span asp-validation-for="Title" class="text-danger" style="color: #dc3545; font-size: 14px;"></span>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label asp-for="StartTime" class="form-label" style="display: block; margin-bottom: 8px; font-weight: 600;">وقت البدء</label>
+                    <input asp-for="StartTime" type="datetime-local" required class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" />
+                    <span asp-validation-for="StartTime" class="text-danger" style="color: #dc3545; font-size: 14px;"></span>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 5px;">متى يمكن للطلاب بدء الاختبار</p>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label asp-for="EndTime" class="form-label" style="display: block; margin-bottom: 8px; font-weight: 600;">وقت الانتهاء</label>
+                    <input asp-for="EndTime" type="datetime-local" required class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" />
+                    <span asp-validation-for="EndTime" class="text-danger" style="color: #dc3545; font-size: 14px;"></span>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 5px;">آخر موعد لدخول الطلاب للاختبار</p>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label asp-for="Duration" class="form-label" style="display: block; margin-bottom: 8px; font-weight: 600;">مدة الاختبار (بالدقائق)</label>
+                    <input asp-for="Duration" type="number" min="1" required class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" placeholder="مثال: 60" />
+                    <span asp-validation-for="Duration" class="text-danger" style="color: #dc3545; font-size: 14px;"></span>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 5px;">الوقت المحدد للطالب لإكمال الاختبار</p>
+                </div>
+
+                <!-- TotalGrade is now calculated dynamically -->
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 16px;">إنشاء الاختبار</button>
+                    <a asp-controller="Teacher" asp-action="Course" asp-route-id="@ViewBag.CourseId" style="display: block; margin-top: 15px; color: var(--text-secondary);">إلغاء</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

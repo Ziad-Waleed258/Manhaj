@@ -1,0 +1,230 @@
+@using System.Security.Claims
+@model Manhaj.Models.Course
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "_DashboardLayout";
+    var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+    var isEnrolled = Model.Course_Registrations.Any(cr => cr.StudentID == userId);
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <!-- Course Header -->
+        <div class="dashboard-card" style="margin-bottom: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px;">
+                <div style="flex: 1;">
+                    <h2 class="section-title" style="margin-bottom: 10px;">@Model.Title</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">@(Model.Description ?? "لا يوجد وصف متاح")</p>
+                    
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;">
+                        <span style="color: var(--text-secondary);">
+                            <strong>المعلم:</strong> @Model.Teacher.FirstName @Model.Teacher.LastName
+                        </span>
+                        <span style="color: var(--text-secondary);">
+                            <strong>التخصص:</strong> @Model.Teacher.Specialization
+                        </span>
+                        <span style="color: var(--text-secondary);">
+                            <strong>المستوى:</strong> @Model.level
+                        </span>
+                    </div>
+
+                    <div style="display: flex; gap: 30px; margin-top: 20px;">
+                        <div>
+                            <div style="font-size: 28px; font-weight: 700; color: var(--primary-color);">@Model.Lectures.Count</div>
+                            <div style="color: var(--text-secondary);">محاضرة</div>
+                        </div>
+                        @if (ViewBag.EnrollmentStatus == "None")
+                        {
+                            <div>
+                                <div style="font-size: 28px; font-weight: 700; color: var(--primary-color);">@Model.Course_Registrations.Count</div>
+                                <div style="color: var(--text-secondary);">طالب مسجل</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 28px; font-weight: 700; color: var(--primary-color);">@Model.Price.ToString("N0")</div>
+                                <div style="color: var(--text-secondary);">جنيه</div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end;">
+                    @if (ViewBag.EnrollmentStatus == "Approved")
+                    {
+                        <div style="background: #d4edda; color: #155724; padding: 15px 30px; border-radius: 8px; font-weight: 600;">
+                            ✓ أنت مسجل في هذه الدورة
+                        </div>
+                    }
+                    else if (ViewBag.EnrollmentStatus == "Pending")
+                    {
+                        <div style="background: #fff3cd; color: #856404; padding: 15px 30px; border-radius: 8px; font-weight: 600;">
+                            ⏳ طلب التسجيل قيد المراجعة
+                        </div>
+                    }
+                    else if (ViewBag.EnrollmentStatus == "Rejected")
+                    {
+                        <div style="background: #f8d7da; color: #721c24; padding: 15px 30px; border-radius: 8px; font-weight: 600;">
+                            ❌ تم رفض طلب التسجيل
+                        </div>
+                    }
+                    else
+                    {
+                        @if (Model.Price == 0)
+                        {
+                            <form asp-action="Enroll" asp-route-courseId="@Model.Id" method="post">
+                                <button type="submit" class="btn btn-primary" style="padding: 12px 30px; font-size: 16px;">
+                                    تسجيل مجاني
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                                    <a asp-action="PurchaseCourse" asp-route-courseId="@Model.Id" class="btn btn-primary" style="padding: 12px 30px; font-size: 16px;text-decoration:none;">
+                                اشتراك الآن (@Model.Price.ToString("N0") جنيه)
+                            </a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        @if (ViewBag.EnrollmentStatus == "Approved")
+        {
+            <div class="dashboard-card" style="margin-bottom: 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 class="section-title" style="font-size: 20px; margin: 0;">تقدمك في الدورة</h3>
+                    <span style="font-weight: 700; color: var(--primary-color);">@ViewBag.ProgressPercentage%</span>
+                </div>
+                <div style="background: #e9ecef; border-radius: 10px; height: 15px; width: 100%; overflow: hidden;">
+                    <div style="background: var(--primary-color); height: 100%; width: @ViewBag.ProgressPercentage%;"></div>
+                </div>
+            </div>
+        }
+
+        <!-- Lectures List -->
+        @if (ViewBag.EnrollmentStatus == "Approved")
+        {
+            <div class="dashboard-card">
+                <h3 class="section-title" style="font-size: 24px; margin-bottom: 20px;">المحاضرات</h3>
+                
+                @if (Model.Lectures.Any())
+                {
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        @foreach (var lecture in Model.Lectures.OrderBy(l => l.Id))
+                        {
+                            var isCompleted = ((List<int>)ViewBag.CompletedLectures).Contains(lecture.Id);
+                            <div style="background: var(--background-gray); padding: 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center;">
+                                <div style="flex: 1;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">@lecture.Title</h4>
+                                        @if (isCompleted)
+                                        {
+                                            <span style="color: #28a745; font-size: 18px;" title="مكتمل">✅</span>
+                                        }
+                                    </div>
+                                    <p style="color: var(--text-secondary); margin-bottom: 10px;">@lecture.Description</p>
+                                    <div style="display: flex; gap: 20px; color: var(--text-secondary); font-size: 14px;">
+                                        <span>📹 فيديو</span>
+                                        <span>📄 @lecture.Materials.Count مادة</span>
+                                        @if (lecture.assignment != null)
+                                        {
+                                            <span>📝 واجب</span>
+                                        }
+                                    </div>
+                                    
+                                    @if (lecture.Materials.Any())
+                                    {
+                                        <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px;">
+                                            @foreach (var material in lecture.Materials)
+                                            {
+                                                <a href="~/@material.FilePath" target="_blank" class="btn btn-sm btn-outline-secondary" style="font-size: 12px; padding: 4px 10px;">
+                                                    📥 @material.Title
+                                                </a>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; align-items: center;">
+                                    @if (lecture.assignment != null)
+                                    {
+                                                        <a class="btn btn-outline" style="padding: 8px 16px; font-size: 14px;text-decoration:none;" 
+                                           asp-controller="Assignment" asp-action="Details" asp-route-id="@lecture.assignment.Id">
+                                            📝 الواجب
+                                        </a>
+                                    }
+                                    @if (lecture.Quiz != null)
+                                    {
+                                                        <a class="btn btn-outline" style="padding: 8px 16px; font-size: 14px; color: var(--secondary-color); border-color: var(--secondary-color);text-decoration:none;" 
+                                           asp-controller="Quiz" asp-action="Details" asp-route-id="@lecture.Quiz.Id">
+                                            🧠 اختبار
+                                        </a>
+                                    }
+                                                <a class="btn btn-primary" href="@lecture.VideoUrl" target="_blank" onclick="toggleCompletion(@lecture.Id)" style="padding: 8px 16px; font-size: 14px;text-decoration:none;">
+                                        مشاهدة المحاضرة
+                                    </a>
+                                    
+                                    <button id="btn-complete-@lecture.Id" 
+                                            class="btn btn-sm @(isCompleted ? "btn-outline-danger" : "btn-outline-secondary")" 
+                                            onclick="toggleCompletion(@lecture.Id)" 
+                                            style="padding: 8px 16px; font-size: 12px;">
+                                        @(isCompleted ? "إلغاء الاكتمال" : "تعليم كمكتمل")
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p style="text-align: center; color: var(--text-secondary); padding: 40px;">
+                        لم يتم إضافة محاضرات بعد
+                    </p>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="dashboard-card" style="text-align: center; padding: 60px 20px;">
+                <p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 20px;">
+                    يجب التسجيل في الدورة لعرض المحاضرات
+                </p>
+            </div>
+        }
+    </div>
+</section>
+
+<script>
+    function toggleCompletion(lectureId) {
+        fetch('/Student/ToggleLectureCompletion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `lectureId=${lectureId}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                console.error('Failed to update progress');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>

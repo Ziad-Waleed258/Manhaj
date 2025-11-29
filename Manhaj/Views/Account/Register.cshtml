@@ -1,0 +1,154 @@
+@model Manhaj.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "إنشاء حساب جديد";
+    Layout = "_Layout";
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+    <div style="max-width: 600px; width: 100%;">
+        <div class="dashboard-card">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">إنشاء حساب جديد</h2>
+            
+            <form asp-action="Register" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger" style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px;"></div>
+                
+                <div class="form-group">
+                    <label class="form-label" asp-for="FirstName">الاسم الأول</label>
+                    <input type="text" asp-for="FirstName" class="form-input" placeholder="أحمد" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" asp-for="LastName">الاسم الأخير</label>
+                    <input type="text" asp-for="LastName" class="form-input" placeholder="محمد" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" asp-for="Email">البريد الإلكتروني</label>
+                    <input type="email" asp-for="Email" class="form-input" placeholder="example@email.com" dir="ltr" style="text-align: left;" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" asp-for="Phone">رقم الهاتف</label>
+                    <input type="tel" asp-for="Phone" class="form-input" placeholder="01012345678" dir="ltr" style="text-align: left;" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="form-label" asp-for="Password">كلمة المرور</label>
+                    <input type="password" asp-for="Password" class="form-input" placeholder="••••••••" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" asp-for="ConfirmPassword">تأكيد كلمة المرور</label>
+                    <input type="password" asp-for="ConfirmPassword" class="form-input" placeholder="••••••••" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" asp-for="UserType">نوع المستخدم</label>
+                    <select asp-for="UserType" class="form-input" id="userTypeSelect">
+                        <option value="">اختر نوع المستخدم</option>
+                        <option value="Student">طالب</option>
+                        <option value="Teacher">معلم</option>
+                    </select>
+                    <span asp-validation-for="UserType" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" id="levelGroup" style="display: none;">
+                    <label class="form-label" asp-for="Level">المستوى الدراسي</label>
+                    <select asp-for="Level" class="form-input">
+                        <option value="">اختر المستوى</option>
+                        <option value="الصف الأول الثانوي">الصف الأول الثانوي</option>
+                        <option value="الصف الثاني الثانوي">الصف الثاني الثانوي</option>
+                        <option value="الصف الثالث الثانوي">الصف الثالث الثانوي</option>
+                    </select>
+                    <span asp-validation-for="Level" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" id="ParentNum" style="display: none;">
+                    <label class="form-label" asp-for="ParentPhone">رقم هاتف ولي الأمر</label>
+                    <input type="tel" asp-for="ParentPhone" class="form-input" placeholder="01012345678" dir="ltr" style="text-align: left;" />
+                    <span asp-validation-for="ParentPhone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" id="specializationGroup" style="display: none;">
+                    <label class="form-label" asp-for="Specialization">التخصص</label>
+                    <select asp-for="Specialization" class="form-input">
+                        <option value="">اختر التخصص</option>
+                        <option value="الرياضيات">الرياضيات</option>
+                        <option value="الفيزياء">الفيزياء</option>
+                        <option value="الكيمياء">الكيمياء</option>
+                        <option value="الأحياء">الأحياء</option>
+                        <option value="اللغة العربية">اللغة العربية</option>
+                        <option value="اللغة الإنجليزية">اللغة الإنجليزية</option>
+                        <option value="التاريخ">التاريخ</option>
+                        <option value="الجغرافيا">الجغرافيا</option>
+                    </select>
+                    <span asp-validation-for="Specialization" class="text-danger"></span>
+                </div>
+
+                <div id="teacherFiles" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="NationalIdFront">صورة البطاقة (الوجه)</label>
+                        <input type="file" asp-for="NationalIdFront" class="form-input" accept="image/*" />
+                        <span asp-validation-for="NationalIdFront" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" asp-for="NationalIdBack">صورة البطاقة (الظهر)</label>
+                        <input type="file" asp-for="NationalIdBack" class="form-input" accept="image/*" />
+                        <span asp-validation-for="NationalIdBack" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">إنشاء الحساب</button>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <p>لديك حساب بالفعل؟ <a asp-action="Login" style="color: var(--primary-color); font-weight: 600;">تسجيل الدخول</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function updateFormFields() {
+            const userType = document.getElementById('userTypeSelect').value;
+            const levelGroup = document.getElementById('levelGroup');
+            const specializationGroup = document.getElementById('specializationGroup');
+            const teacherFiles = document.getElementById('teacherFiles');
+            const ParentPhone = document.getElementById('ParentNum');
+            
+            if (userType === 'Student') {
+                levelGroup.style.display = 'block';
+                specializationGroup.style.display = 'none';
+                teacherFiles.style.display = 'none';
+                ParentPhone.style.display='block';
+
+            } else if (userType === 'Teacher') {
+                levelGroup.style.display = 'none';
+                specializationGroup.style.display = 'block';
+                teacherFiles.style.display = 'block';
+                ParentPhone.style.display='none';
+            } else {
+                levelGroup.style.display = 'none';
+                specializationGroup.style.display = 'none';
+                teacherFiles.style.display = 'none';
+                ParentPhone.style.display='none';
+            }
+        }
+
+        document.getElementById('userTypeSelect').addEventListener('change', updateFormFields);
+        
+        // Run on page load to handle validation errors/refresh
+        document.addEventListener('DOMContentLoaded', updateFormFields);
+    </script>
+}

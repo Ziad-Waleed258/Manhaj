@@ -1,0 +1,117 @@
+@model Manhaj.Models.Student_Quiz
+
+@{
+    ViewData["Title"] = "إجابات الاختبار - " + Model.Quiz.Title;
+    Layout = "_DashboardLayout";
+    var isTeacher = User.IsInRole("Teacher");
+    var isStudent = User.IsInRole("Student");
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div class="section-header">
+            <h2 class="section-title">@Model.Quiz.Title</h2>
+            <p class="section-subtitle">
+                @if (isTeacher)
+                {
+                    <span>الطالب: @Model.Student.FirstName @Model.Student.LastName | </span>
+                }
+                الدرجة: @Model.Grade / @Model.Quiz.TotalGrade
+            </p>
+        </div>
+
+        <div class="dashboard-card">
+            <div style="display: flex; flex-direction: column; gap: 30px;">
+                @foreach (var question in Model.Quiz.Questions)
+                {
+                    var studentAnswer = Model.Answers?.FirstOrDefault(a => a.QuestionId == question.Id);
+                    var selectedOptionId = studentAnswer?.SelectedOptionId ?? 0;
+                    var isCorrect = false;
+
+                    // Determine correctness
+                    if (studentAnswer != null)
+                    {
+                        var selectedOption = question.Options.FirstOrDefault(o => o.Id == selectedOptionId);
+                        if (selectedOption != null && selectedOption.Content == question.TrueAnswer)
+                        {
+                            isCorrect = true;
+                        }
+                    }
+
+                    <div style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                            <p style="font-weight: 600; font-size: 18px; margin: 0;">@question.Content</p>
+                            @if (selectedOptionId > 0)
+                            {
+                                <span style="font-size: 14px; padding: 4px 8px; border-radius: 4px; background: @(isCorrect ? "#d4edda" : "#f8d7da"); color: @(isCorrect ? "#155724" : "#721c24");">
+                                    @(isCorrect ? "صحيح ✓" : "خطأ ✗")
+                                </span>
+                            }
+                            else
+                            {
+                                <span style="font-size: 14px; padding: 4px 8px; border-radius: 4px; background: #f8d7da; color: #721c24;">
+                                    لم يتم الإجابة
+                                </span>
+                            }
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            @foreach (var option in question.Options)
+                            {
+                                var isSelected = option.Id == selectedOptionId;
+                                var isTrueAnswer = option.Content == question.TrueAnswer;
+                                
+                                string style = "padding: 10px; border: 1px solid #ddd; border-radius: 8px;";
+                                string icon = "";
+                                string label = "";
+
+                                if (isSelected && isTrueAnswer)
+                                {
+                                    style = "padding: 10px; border: 2px solid #28a745; background: #d4edda; border-radius: 8px; font-weight: 600;";
+                                    icon = "✅";
+                                    label = "(إجابتك - صحيحة)";
+                                }
+                                else if (isSelected && !isTrueAnswer)
+                                {
+                                    style = "padding: 10px; border: 2px solid #dc3545; background: #f8d7da; border-radius: 8px; font-weight: 600;";
+                                    icon = "❌";
+                                    label = "(إجابتك - خاطئة)";
+                                }
+                                else if (!isSelected && isTrueAnswer)
+                                {
+                                    style = "padding: 10px; border: 2px solid #28a745; background: #e7f4e7; border-radius: 8px;";
+                                    icon = "✓";
+                                    label = "(الإجابة الصحيحة)";
+                                }
+
+                                <div style="@style">
+                                    <span style="margin-left: 10px;">@icon</span>
+                                    <span>@option.Content</span>
+                                    @if (!string.IsNullOrEmpty(label))
+                                    {
+                                        <span style="color: var(--text-secondary); font-size: 12px; margin-right: 10px;">@label</span>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                @if (isTeacher)
+                {
+                    <a asp-controller="Quiz" asp-action="Details" asp-route-id="@Model.QuizId" class="btn btn-primary">
+                        عودة للاختبار
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Student" asp-action="Course" asp-route-id="@Model.Quiz.Lecture.CourseID" class="btn btn-primary">
+                        عودة للدورة
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - منهج</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container" onclick="window.location.href='/'" style="cursor: pointer;">
+                    <img src="~/images/logo.png" alt="Manhaj" style="height: 80px; width: auto;">
+                </div>
+                <div style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);">
+                    @if (User.IsInRole("Admin")) { <text>لوحة تحكم المشرف</text> }
+                    else if (User.IsInRole("Teacher")) { <text>لوحة تحكم المعلم</text> }
+                    else if (User.IsInRole("Student")) { <text>لوحة تحكم الطالب</text> }
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="@Url.Action("Dashboard", "Admin")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Dashboard" ? "active" : "")">
+                        <span class="sidebar-icon">🏠</span>
+                        لوحة التحكم
+                    </a>
+                    <a href="@Url.Action("Users", "Admin")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Users" ? "active" : "")">
+                        <span class="sidebar-icon">👥</span>
+                        إدارة المستخدمين
+                    </a>
+                    <a href="@Url.Action("Courses", "Admin")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Courses" ? "active" : "")">
+                        <span class="sidebar-icon">📚</span>
+                        إدارة الدورات
+                    </a>
+                    <a href="@Url.Action("PendingTeachers", "Admin")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "PendingTeachers" ? "active" : "")" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="sidebar-icon">👨‍🏫</span>
+                            طلبات المعلمين
+                        </div>
+                        @if (ViewBag.PendingTeacherCount != null && ViewBag.PendingTeacherCount > 0)
+                        {
+                            <span style="background: #dc3545; color: white; border-radius: 50%; padding: 2px 8px; font-size: 12px; font-weight: bold;">@ViewBag.PendingTeacherCount</span>
+                        }
+                    </a>
+                    <a href="@Url.Action("PendingEnrollments", "Admin")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "PendingEnrollments" ? "active" : "")" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="sidebar-icon">💳</span>
+                            طلبات الدفع
+                        </div>
+                        @if (ViewBag.PendingEnrollmentCount != null && ViewBag.PendingEnrollmentCount > 0)
+                        {
+                            <span style="background: #dc3545; color: white; border-radius: 50%; padding: 2px 8px; font-size: 12px; font-weight: bold;">@ViewBag.PendingEnrollmentCount</span>
+                        }
+                    </a>
+                    <a href="@Url.Action("Blacklist", "Admin")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Blacklist" ? "active" : "")">
+                        <span class="sidebar-icon">🚫</span>
+                        القائمة السوداء
+                    </a>
+                }
+                else if (User.IsInRole("Teacher"))
+                {
+                    <a href="@Url.Action("Dashboard", "Teacher")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Dashboard" ? "active" : "")">
+                        <span class="sidebar-icon">🏠</span>
+                        لوحة التحكم
+                    </a>
+                    <a href="@Url.Action("Courses", "Teacher")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Courses" ? "active" : "")">
+                        <span class="sidebar-icon">📚</span>
+                        دوراتي
+                    </a>
+                    <a href="@Url.Action("CreateCourse", "Teacher")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "CreateCourse" ? "active" : "")">
+                        <span class="sidebar-icon">⬆️</span>
+                        إضافة دورة
+                    </a>
+
+                }
+                else if (User.IsInRole("Student"))
+                {
+                    <a href="@Url.Action("Dashboard", "Student")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Dashboard" ? "active" : "")">
+                        <span class="sidebar-icon">🏠</span>
+                        نظرة عامة
+                    </a>
+                    <a href="@Url.Action("Courses", "Student")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Courses" ? "active" : "")">
+                        <span class="sidebar-icon">📚</span>
+                        دوراتي
+                    </a>
+                    <a href="@Url.Action("BrowseCourses", "Student")" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "BrowseCourses" ? "active" : "")">
+                        <span class="sidebar-icon">🔍</span>
+                        تصفح الدورات
+                    </a>
+                }
+            </nav>
+
+            <div class="sidebar-footer">
+                <div style="margin-bottom: 15px; font-weight: 600;">
+                    <a asp-controller="Account" asp-action="Profile" style="text-decoration: none; color: inherit;">
+                        @(User.Identity?.Name ?? "المستخدم")
+                    </a>
+                </div>
+                <form asp-controller="Account" asp-action="Logout" method="post">
+                    <button type="submit" class="btn btn-outline btn-small" style="width: 100%;">تسجيل الخروج</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success" style="background: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #c3e6cb;">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger" style="background: #f8d7da; color: #721c24; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #f5c6cb;">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="~/js/app.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

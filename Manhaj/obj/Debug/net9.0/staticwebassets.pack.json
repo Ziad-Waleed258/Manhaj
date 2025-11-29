@@ -1,0 +1,641 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Manhaj.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Manhaj.q8aal15pkw.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\js\\app.js",
+      "PackagePath": "staticwebassets\\js\\app.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\assignments\\3bd90ae8-7982-4f4b-b972-e0fa1fb744ea_Screenshot 2025-06-27 093654.png",
+      "PackagePath": "staticwebassets\\uploads\\assignments\\3bd90ae8-7982-4f4b-b972-e0fa1fb744ea_Screenshot 2025-06-27 093654.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\css\\site.css",
+      "PackagePath": "staticwebassets\\uploads\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\css\\styles.css",
+      "PackagePath": "staticwebassets\\uploads\\css\\styles.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\images\\logo.png",
+      "PackagePath": "staticwebassets\\uploads\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\js\\app.js",
+      "PackagePath": "staticwebassets\\uploads\\js\\app.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\js\\site.js",
+      "PackagePath": "staticwebassets\\uploads\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\uploads\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\materials\\2d2accfd-0773-479d-b79b-5305ac48f8a2_Screenshot 2025-06-30 175934.png",
+      "PackagePath": "staticwebassets\\uploads\\materials\\2d2accfd-0773-479d-b79b-5305ac48f8a2_Screenshot 2025-06-30 175934.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\materials\\ef97d1ca-a0ee-45bf-aac0-1587fd0eb437_Screenshot 2025-06-28 195241.png",
+      "PackagePath": "staticwebassets\\uploads\\materials\\ef97d1ca-a0ee-45bf-aac0-1587fd0eb437_Screenshot 2025-06-28 195241.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\payments\\14_4_20251126195933.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\payments\\14_4_20251126195933.jpeg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\payments\\15_4_20251126201207.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\payments\\15_4_20251126201207.jpeg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\payments\\18_10_20251127004319.jpg",
+      "PackagePath": "staticwebassets\\uploads\\payments\\18_10_20251127004319.jpg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\payments\\1_4_20251126023314.png",
+      "PackagePath": "staticwebassets\\uploads\\payments\\1_4_20251126023314.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\payments\\1_7_20251126182507.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\payments\\1_7_20251126182507.jpeg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\payments\\5_3_20251128095059.png",
+      "PackagePath": "staticwebassets\\uploads\\payments\\5_3_20251128095059.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\payments\\7_3_20251128104800.png",
+      "PackagePath": "staticwebassets\\uploads\\payments\\7_3_20251128104800.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\0dc7ff97-b724-48a0-93d2-b98be800fbc0_WhatsApp Image 2025-10-25 at 12.28.34 PM.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\0dc7ff97-b724-48a0-93d2-b98be800fbc0_WhatsApp Image 2025-10-25 at 12.28.34 PM.jpeg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\23201403-f800-4c55-ab8f-b85c47877683_WhatsApp Image 2025-10-25 at 12.28.34 PM.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\23201403-f800-4c55-ab8f-b85c47877683_WhatsApp Image 2025-10-25 at 12.28.34 PM.jpeg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\53feb070-b877-4ba9-bc90-718633820f87_Screenshot 2025-10-17 195334.jpg",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\53feb070-b877-4ba9-bc90-718633820f87_Screenshot 2025-10-17 195334.jpg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\63858a1e-0431-4203-9418-46b83f4ee144_Screenshot 2025-06-30 183923.png",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\63858a1e-0431-4203-9418-46b83f4ee144_Screenshot 2025-06-30 183923.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\7d1054fe-2ae4-4566-a8cc-bb758d248ae0_صوره 24.png",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\7d1054fe-2ae4-4566-a8cc-bb758d248ae0_صوره 24.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\8c9a905d-2796-4956-ba6d-2bc375899d6d_Screenshot 2025-06-30 144134.png",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\8c9a905d-2796-4956-ba6d-2bc375899d6d_Screenshot 2025-06-30 144134.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\ac71bc30-989c-48e8-b939-f7f765d09e67_WhatsApp Image 2025-10-25 at 12.28.33 PM.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\ac71bc30-989c-48e8-b939-f7f765d09e67_WhatsApp Image 2025-10-25 at 12.28.33 PM.jpeg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\b679cab9-0065-40f7-a3e7-f504f03674e7_WhatsApp Image 2025-10-25 at 12.28.33 PM.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\b679cab9-0065-40f7-a3e7-f504f03674e7_WhatsApp Image 2025-10-25 at 12.28.33 PM.jpeg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\b7b871b8-c11e-4dff-a59f-c8a0bb81cff3_Screenshot 2025-10-17 195334.jpg",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\b7b871b8-c11e-4dff-a59f-c8a0bb81cff3_Screenshot 2025-10-17 195334.jpg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\c81e2ff6-ff45-41ca-9e1f-78e5e842c1e5_صوره 25.png",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\c81e2ff6-ff45-41ca-9e1f-78e5e842c1e5_صوره 25.png"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\d9b4924e-7325-4d78-ae0f-7af5a8562903_photo_5830074262579432173_y (1).jpg",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\d9b4924e-7325-4d78-ae0f-7af5a8562903_photo_5830074262579432173_y (1).jpg"
+    },
+    {
+      "Id": "D:\\Studying\\My_Projects\\MVC_Depi\\Manhaj\\Manhaj\\Manhaj\\wwwroot\\uploads\\teachers_ids\\f7481e52-78b4-49a5-96a4-78b18ed03639_photo_5830074262579432173_y.jpg",
+      "PackagePath": "staticwebassets\\uploads\\teachers_ids\\f7481e52-78b4-49a5-96a4-78b18ed03639_photo_5830074262579432173_y.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Manhaj.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Manhaj.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.Manhaj.props",
+      "PackagePath": "build\\Manhaj.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Manhaj.props",
+      "PackagePath": "buildMultiTargeting\\Manhaj.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.Manhaj.props",
+      "PackagePath": "buildTransitive\\Manhaj.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,129 @@
+@model Manhaj.Models.Assignment
+@{
+    ViewData["Title"] = "مراجعة الواجب - " + Model.Title;
+    var submissions = ViewBag.Submissions as List<Manhaj.Models.Student_Assignment>;
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <div class="dashboard-card" style="margin-bottom: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: start;">
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 10px;">@Model.Title</h2>
+                    <p style="color: var(--text-secondary);">
+                        المحاضرة: @Model.Lecture.Title | الموعد النهائي: @Model.Deadline.ToString("yyyy/MM/dd HH:mm")
+                    </p>
+                </div>
+                <div>
+                    <div style="text-align: center; background: var(--background-gray); padding: 15px; border-radius: 8px;">
+                        <div style="font-size: 24px; font-weight: 700; color: var(--primary-color);">@submissions.Count</div>
+                        <div style="font-size: 14px; color: var(--text-secondary);">عدد التسليمات</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <p><strong>الوصف:</strong> @Model.Description</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h3 class="section-title" style="font-size: 20px; margin-bottom: 20px;">تسليمات الطلاب</h3>
+
+            @if (ViewBag.StudentStatuses != null)
+            {
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--background-gray); font-weight: 600;">
+                                <th style="padding: 12px; text-align: right;">الطالب</th>
+                                <th style="padding: 12px; text-align: center;">الحالة</th>
+                                <th style="padding: 12px; text-align: right;">تاريخ التسليم</th>
+                                <th style="padding: 12px; text-align: right;">الملف</th>
+                                <th style="padding: 12px; text-align: right;">الدرجة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var status in ViewBag.StudentStatuses)
+                            {
+                                <tr style="border-bottom: 1px solid #e0e0e0;">
+                                    <td style="padding: 12px;">
+                                        @status.Student.FirstName @status.Student.LastName
+                                        <div style="font-size: 12px; color: var(--text-secondary);">@status.Student.Email</div>
+                                    </td>
+                                    <td style="padding: 12px; text-align: center;">
+                                        @if (status.HasSubmission)
+                                        {
+                                            <span style="background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px;">تم التسليم</span>
+                                        }
+                                        else
+                                        {
+                                            <span style="background: #fff3cd; color: #856404; padding: 4px 8px; border-radius: 4px;">لم يتم التسليم</span>
+                                        }
+                                    </td>
+                                    <td style="padding: 12px;">
+                                        @if (status.HasSubmission)
+                                        {
+                                            @status.SubmissionDate?.ToString("yyyy/MM/dd HH:mm")
+                                            @if (status.SubmissionDate > Model.Deadline)
+                                            {
+                                                <span style="color: #dc3545; font-size: 12px;">(متأخر)</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span style="color: var(--text-secondary);">-</span>
+                                        }
+                                    </td>
+                                    <td style="padding: 12px;">
+                                        @if (status.HasSubmission && !string.IsNullOrEmpty(status.SubmissionPath))
+                                        {
+                                            <a href="~/@status.SubmissionPath" target="_blank" class="btn btn-outline" style="padding: 5px 10px; font-size: 12px;">
+                                                عرض الملف
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <span style="color: var(--text-secondary);">-</span>
+                                        }
+                                    </td>
+                                    <td style="padding: 12px;">
+                                        @if (status.HasSubmission)
+                                        {
+                                            <form asp-action="Grade" method="post" style="display: flex; gap: 10px; align-items: center;">
+                                                <input type="hidden" name="assignmentId" value="@Model.Id" />
+                                                <input type="hidden" name="studentId" value="@status.Student.Id" />
+                                                <input type="number" name="grade" value="@status.Grade" class="form-input" style="width: 80px; padding: 5px;" min="0" max="100" step="0.5" />
+                                                <button type="submit" class="btn btn-primary" style="padding: 5px 15px; font-size: 12px;">
+                                                    رصد
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <span style="color: var(--text-secondary);">-</span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p style="text-align: center; color: var(--text-secondary); padding: 40px;">
+                    لا يوجد طلاب مسجلين في هذه الدورة
+                </p>
+            }
+        </div>
+    </div>
+</section>

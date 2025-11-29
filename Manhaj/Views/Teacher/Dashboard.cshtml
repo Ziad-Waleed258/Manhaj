@@ -1,0 +1,123 @@
+@model Manhaj.Models.Teacher
+@{
+    ViewData["Title"] = "لوحة تحكم المعلم";
+    Layout = "_DashboardLayout";
+}
+
+<div class="content-header">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h2 class="heading-md" style="color: var(--primary-blue);">لوحة التحكم</h2>
+            <p class="body-md" style="color: var(--text-secondary);">إدارة دوراتك والمحتوى التعليمي</p>
+        </div>
+    </div>
+</div>
+
+<div class="content-body">
+    <!-- Stats Cards -->
+    <div class="stats-grid" style="margin-bottom: 40px; grid-template-columns: repeat(3, 1fr);">
+        <div class="stat-card" style="background: white; border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="stat-card-icon" style="background: #e0e7ff; color: #4f46e5; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">📚</div>
+                    <div class="stat-card-value">@ViewBag.TotalCourses</div>
+                    <div class="stat-card-label">دوراتي</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stat-card" style="background: white; border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="stat-card-icon" style="background: #dcfce7; color: #16a34a; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">👥</div>
+                    <div class="stat-card-value">@ViewBag.TotalStudents</div>
+                    <div class="stat-card-label">الطلاب المسجلين</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card" style="background: white; border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="stat-card-icon" style="background: #fce7f3; color: #db2777; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">📝</div>
+                    <div class="stat-card-value">@ViewBag.TotalQuizzes</div>
+                    <div class="stat-card-label">الاختبارات</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activities -->
+    <div class="dashboard-card">
+        <div class="card-header">
+            <span style="font-size: 24px;">📋</span>
+            <span>آخر النشاطات</span>
+        </div>
+        
+        @if (ViewBag.RecentQuizSubmissions != null && ((List<Manhaj.Models.Student_Quiz>)ViewBag.RecentQuizSubmissions).Any() || 
+             ViewBag.RecentAssignmentSubmissions != null && ((List<Manhaj.Models.Student_Assignment>)ViewBag.RecentAssignmentSubmissions).Any())
+        {
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>الطالب</th>
+                            <th>النشاط</th>
+                            <th>تاريخ التسليم</th>
+                            <th>الدرجة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.RecentQuizSubmissions != null)
+                        {
+                            foreach (var sub in (List<Manhaj.Models.Student_Quiz>)ViewBag.RecentQuizSubmissions)
+                            {
+                                <tr>
+                                    <td>@sub.Student.FirstName @sub.Student.LastName</td>
+                                    <td>
+                                        <span style="color: var(--secondary-color);">🧠 اختبار:</span> @sub.Quiz.Title
+                                    </td>
+                                    <td>@sub.SubmissionDate.ToString("yyyy-MM-dd HH:mm")</td>
+                                    <td>
+                                        <span class="badge badge-success">@sub.Grade / @sub.Quiz.TotalGrade</span>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        
+                        @if (ViewBag.RecentAssignmentSubmissions != null)
+                        {
+                            foreach (var sub in (List<Manhaj.Models.Student_Assignment>)ViewBag.RecentAssignmentSubmissions)
+                            {
+                                <tr>
+                                    <td>@sub.Student.FirstName @sub.Student.LastName</td>
+                                    <td>
+                                        <span style="color: var(--primary-color);">📝 واجب:</span> @sub.Assignment.Title
+                                    </td>
+                                    <td>@sub.SubmissionDate?.ToString("yyyy-MM-dd HH:mm")</td>
+                                    <td>
+                                        @if (sub.Grade > 0)
+                                        {
+                                            <span class="badge badge-success">@sub.Grade</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-warning">بانتظار التصحيح</span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+                <div style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;">📋</div>
+                <p>لا توجد تسليمات جديدة</p>
+            </div>
+        }
+    </div>
+</div>

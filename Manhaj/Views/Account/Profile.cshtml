@@ -1,0 +1,49 @@
+@model Manhaj.Models.User
+@{
+    ViewData["Title"] = "الملف الشخصي";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="padding: 40px 20px;">
+    <div class="dashboard-card" style="max-width: 800px; margin: 0 auto;">
+        <div class="section-header text-center">
+            <h2 class="section-title">الملف الشخصي</h2>
+        </div>
+        
+        <div class="profile-header" style="text-align: center; margin-bottom: 30px;">
+            <div class="avatar-circle" style="width: 100px; height: 100px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 15px auto;">
+                @(Model.FirstName?.Length > 0 ? Model.FirstName[0].ToString() : "")@(Model.LastName?.Length > 0 ? Model.LastName[0].ToString() : "")
+            </div>
+            <h3>@Model.FirstName @Model.LastName</h3>
+            <span class="badge" style="background: var(--secondary-color); color: white; padding: 5px 10px; border-radius: 15px;">@ViewData["UserRole"]</span>
+        </div>
+
+        <div class="profile-details">
+            <div class="form-group" style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                <label style="font-weight: bold; color: var(--text-secondary);">البريد الإلكتروني</label>
+                <div style="font-size: 1.1rem;">@Model.Email</div>
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                <label style="font-weight: bold; color: var(--text-secondary);">رقم الهاتف</label>
+                <div style="font-size: 1.1rem;">@Model.Phone</div>
+            </div>
+
+            @if (Model is Manhaj.Models.Student student)
+            {
+                <div class="form-group" style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                    <label style="font-weight: bold; color: var(--text-secondary);">المستوى الدراسي</label>
+                    <div style="font-size: 1.1rem;">@student.Level</div>
+                </div>
+            }
+
+            @if (Model is Manhaj.Models.Teacher teacher)
+            {
+                <div class="form-group" style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                    <label style="font-weight: bold; color: var(--text-secondary);">التخصص</label>
+                    <div style="font-size: 1.1rem;">@teacher.Specialization</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

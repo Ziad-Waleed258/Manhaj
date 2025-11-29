@@ -1,0 +1,227 @@
+﻿@{
+    ViewData["Title"] = "منهج - منهجك نحو التفوق التعليمي";
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewData["Title"]</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1hctwS0mD6N4Pxq70Wfa1JpXZpwk1luZ9pn4O3Qp7gpC7qVQBCk60MrVbZ29DZk6jvT1dZgN6RCxYh8ZxQeZMA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="~/css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo-container" onclick="window.location.href='/'" style="cursor: pointer;">
+      <img src="~/images/logo.png" alt="Manhaj" style="height: 80px; width: auto;">
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" onclick="scrollToSection('hero')">الرئيسية</a>
+      <a class="nav-link" onclick="scrollToSection('about')">من نحن</a>
+      <a class="nav-link" onclick="scrollToSection('how-it-works')">كيف يعمل</a>
+      <a class="nav-link" onclick="scrollToSection('contact')">تواصل معنا</a>
+      @if (User.Identity.IsAuthenticated)
+      {
+          var role = User.IsInRole("Student") ? "Student" : (User.IsInRole("Teacher") ? "Teacher" : "Admin");
+          <a class="btn btn-primary btn-small" asp-controller="@role" asp-action="Dashboard">لوحة التحكم</a>
+          <a class="nav-link" asp-controller="Account" asp-action="Profile">@User.Identity.Name</a>
+      }
+      else
+      {
+          <a class="btn btn-primary btn-small" asp-controller="Account" asp-action="Login"  style="text-decoration:none;">تسجيل الدخول</a>
+      }
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title" id="hero-title">طريقك إلى المعرفة يبدأ هنا</h1>
+      <p class="hero-subtitle" id="hero-subtitle">منهجك نحو التفوق التعليمي - منصة متكاملة تربط بين الطلاب والمعلمين في بيئة تعليمية تفاعلية</p>
+      <div class="hero-buttons">
+        @if (!User.Identity.IsAuthenticated)
+        {
+                <a class="btn btn-secondary" asp-controller="Account" asp-action="Register"  style="text-decoration:none;">ابدأ الآن</a>
+        }
+        else
+        {
+             var role = User.IsInRole("Student") ? "Student" : (User.IsInRole("Teacher") ? "Teacher" : "Admin");
+            <a class="btn btn-secondary" asp-controller="@role" asp-action="Dashboard">اذهب إلى لوحة التحكم</a>
+        }
+        <button class="btn btn-outline" style="background: rgba(255,255,255,0.1); color: white; border-color: white;" onclick="scrollToSection('how-it-works')">اكتشف المزيد</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about" style="background: var(--surface-white);">
+    <div class="section-header">
+      <h2 class="section-title" id="about-title">لماذا تختار منهج؟</h2>
+      <p class="section-subtitle" id="about-description">منهج هي منصة تعليمية متكاملة توفر مسارًا منظمًا ومُحكمًا للطلاب نحو التفوق. نجمع بين معلمين مؤهلين ومحتوى تفاعلي عالي الجودة مع متابعة مستمرة لتقدمك</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">👨‍🏫</div>
+        <h3 class="feature-title">معلمون مؤهلون</h3>
+        <p class="feature-description">نخبة من المعلمين الأكفاء المتخصصين في مختلف المجالات الأكاديمية</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3 class="feature-title">محتوى تفاعلي</h3>
+        <p class="feature-description">دروس فيديو عالية الجودة مع مواد تعليمية واختبارات تفاعلية</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">متابعة مستمرة</h3>
+        <p class="feature-description">تتبع تقدمك الأكاديمي وحصولك على تقارير مفصلة عن أدائك</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section" id="how-it-works" style="background: var(--background-gray);">
+    <div class="section-header">
+      <h2 class="section-title" id="how-title">كيف يعمل منهج؟</h2>
+      <p class="section-subtitle">ثلاث خطوات بسيطة للبدء في رحلتك التعليمية</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">1️⃣</div>
+        <h3 class="feature-title">سجّل حسابك</h3>
+        <p class="feature-description">أنشئ حسابك كطالب أو معلم في دقائق معدودة</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">2️⃣</div>
+        <h3 class="feature-title">اختر دورتك</h3>
+        <p class="feature-description">تصفح الدورات المتاحة واختر ما يناسب اهتماماتك</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">3️⃣</div>
+        <h3 class="feature-title">ابدأ التعلم</h3>
+        <p class="feature-description">شاهد الدروس، تفاعل مع المحتوى، واختبر معلوماتك</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number" id="home-stat-courses">@ViewBag.CoursesCount</div>
+        <div class="stat-label">دورة تعليمية</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="home-stat-teachers">@ViewBag.TeachersCount</div>
+        <div class="stat-label">معلم محترف</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="home-stat-students">@ViewBag.StudentsCount</div>
+        <div class="stat-label">طالب متفوق</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact" style="background: var(--surface-white);">
+    <div class="section-header">
+      <h2 class="section-title">تواصل معنا</h2>
+      <p class="section-subtitle">لديك استفسار؟ نحن هنا للمساعدة</p>
+    </div>
+    <div style="max-width: 600px; margin: 0 auto;">
+      <div class="dashboard-card">
+        <form id="contact-form" onsubmit="handleContactForm(event)">
+          <div class="form-group">
+            <label class="form-label" for="contact-name">الاسم</label>
+            <input type="text" id="contact-name" class="form-input" placeholder="أدخل اسمك" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-email">البريد الإلكتروني</label>
+            <input type="email" id="contact-email" class="form-input" placeholder="example@email.com" required dir="ltr" style="text-align: left;">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-message">رسالتك</label>
+            <textarea id="contact-message" class="form-textarea" placeholder="اكتب رسالتك هنا..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">إرسال الرسالة</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer style="background: #1f1f1f; color: #fff; padding: 40px 20px; margin-top: 50px; direction: rtl;">
+    <div style="max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+
+        <!-- Logo & Intro -->
+        <div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 15px; color: var(--primary-color);">
+                منصّة منهج
+            </h3>
+            <p style="line-height: 1.8; color: #ccc;">
+                منصّة تعليمية مخصّصة لطلاب الصف الأول، الثاني، والثالث الثانوي في مصر،
+                تقدم محتوى تعليمي متميز، تمارين، ومواد مساعدة لتحقيق أفضل أداء دراسي.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">روابط سريعة</h4>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+                <li><a asp-action="Index" asp-controller="Home" style="color: #ccc; text-decoration: none;">الرئيسية</a></li>
+                <li><a asp-action="Courses" asp-controller="Home" style="color: #ccc; text-decoration: none;">الكورسات</a></li>
+                <li><a asp-action="Register" asp-controller="Account" style="color: #ccc; text-decoration: none;">إنشاء حساب</a></li>
+                <li><a asp-action="Login" asp-controller="Account" style="color: #ccc; text-decoration: none;">تسجيل الدخول</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">تواصل معنا</h4>
+            <p style="margin: 0; color: #ccc;">البريد الإلكتروني:</p>
+            <p style="color: #bbb; direction: rtl;">support@mnhaj.com</p>
+
+            <p style="margin: 15px 0 0; color: #ccc;">هاتف:</p>
+            <p style="color: #bbb; direction: rtl;">0100 000 0000</p>
+        </div>
+
+        <!-- Social -->
+<div>
+    <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">تابعنا</h4>
+    <div style="display: flex; gap: 10px; font-size: 22px;">
+        <a href="https://www.linkedin.com/in/anas-abdrabo/" style="color: #ccc; text-decoration: none;"><i class="fab fa-linkedin">Anas</i></a>
+        <a href="https://www.linkedin.com/in/ziad-waleed-abdulnabi-0b87562b5?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BJ%2BS02c1TTg6UybbfQ9f9pg%3D%3D" style="color: #ccc; text-decoration: none;"><i class="fab fa-linkedin">Zeyad</i></a>
+        <a href="https://www.linkedin.com/in/hassan-mohammed-dev/" style="color: #ccc; text-decoration: none;"><i class="fab fa-linkedin">Hassan</i></a>
+        <a href="https://www.linkedin.com/in/youssef-moneir/" style="color: #ccc; text-decoration: none;"><i class="fab fa-linkedin">Youssef</i></a>
+    </div>
+</div>
+
+    </div>
+
+    <hr style="border-color: #333; margin: 30px 0;">
+
+    <p style="text-align: center; color: #aaa; font-size: 14px; margin: 0;">
+        © جميع الحقوق محفوظة — منصّة منهج 2025
+    </p>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="~/js/app.js"></script>
+
+</body>
+</html>

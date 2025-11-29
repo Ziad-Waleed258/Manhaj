@@ -1,0 +1,111 @@
+@model Manhaj.Models.Quiz
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "_DashboardLayout";
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div class="section-header">
+            <h2 class="section-title">@Model.Title</h2>
+            <p class="section-subtitle">
+                عدد الأسئلة: @Model.Questions.Count | الدرجة الكلية: @Model.TotalGrade<br/>
+                <span>وقت البدء: @Model.StartTime.ToString("yyyy-MM-dd hh:mm tt")</span><br/>
+                @if (Model.Deadline.HasValue)
+                {
+                    <span>وقت الانتهاء: @Model.Deadline.Value.ToString("yyyy-MM-dd hh:mm tt")</span><br/>
+                }
+                <span>المدة المحددة: @Model.Duration دقيقة</span>
+            </p>
+        </div>
+
+        <!-- Timer Display -->
+        <div style="background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; text-align: center;">
+            <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 5px;">الوقت المتبقي</div>
+            <div id="timer" style="font-size: 36px; font-weight: 700; color: var(--primary-color);">
+                --:--
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <form id="quizForm" asp-action="Submit" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                
+                <div style="display: flex; flex-direction: column; gap: 30px;">
+                    @foreach (var question in Model.Questions)
+                    {
+                        <div style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+                            <p style="font-weight: 600; margin-bottom: 15px; font-size: 18px;">@question.Content</p>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                @foreach (var option in question.Options)
+                                {
+                                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 10px; border: 1px solid #ddd; border-radius: 8px; transition: all 0.2s;">
+                                        <input type="radio" name="answers[@question.Id]" value="@option.Id" />
+                                        <span>@option.Content</span>
+                                    </label>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <button type="button" onclick="confirmSubmit()" class="btn btn-primary" style="padding: 12px 40px; font-size: 18px;">تسليم الإجابات</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Timer functionality
+    let timeRemaining = @ViewBag.RemainingSeconds; // Seconds from server
+    const timerDisplay = document.getElementById('timer');
+    const quizForm = document.getElementById('quizForm');
+
+    function updateTimer() {
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            timerDisplay.textContent = "00:00";
+            // Time's up - auto submit
+            alert('انتهى الوقت! سيتم تسليم الإجابات تلقائياً.');
+            quizForm.submit();
+            return;
+        }
+
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = Math.floor(timeRemaining % 60);
+        timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+        if (timeRemaining <= 60) {
+            // Last minute - turn red
+            timerDisplay.style.color = '#dc3545';
+        } else if (timeRemaining <= 300) {
+            // Last 5 minutes - turn orange
+            timerDisplay.style.color = '#ffc107';
+        }
+
+        timeRemaining--;
+    }
+
+    // Update timer every second
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer(); // Initial call
+
+    function confirmSubmit() {
+        const totalQuestions = @Model.Questions.Count;
+        const answeredQuestions = document.querySelectorAll('input[type="radio"]:checked').length;
+        const unanswered = totalQuestions - answeredQuestions;
+
+        let message = `هل أنت متأكد من تسليم الإجابات؟\n\nتمت الإجابة على: ${answeredQuestions} من ${totalQuestions}`;
+        
+        if (unanswered > 0) {
+            message += `\n⚠️ يوجد ${unanswered} أسئلة غير مجابة!`;
+        }
+
+        if (confirm(message)) {
+            quizForm.submit();
+        }
+    }
+</script>

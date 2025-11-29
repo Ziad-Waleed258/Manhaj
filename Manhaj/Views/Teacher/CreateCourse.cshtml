@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "إنشاء دورة جديدة";
+    Layout = "_DashboardLayout";
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div class="dashboard-card">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">إنشاء دورة جديدة</h2>
+            
+            <form asp-action="CreateCourse" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger" style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px;"></div>
+                
+                <div class="form-group">
+                    <label class="form-label">عنوان الدورة</label>
+                    <input type="text" name="Title" class="form-input" placeholder="مثال: الرياضيات - الصف الأول الثانوي" required />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">وصف الدورة</label>
+                    <textarea name="Description" class="form-textarea" placeholder="اكتب وصفاً تفصيلياً عن محتوى الدورة..." rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">المستوى الدراسي</label>
+                    <select name="level" class="form-input" required>
+                        <option value="">اختر المستوى</option>
+                        <option value="الصف الأول الثانوي">الصف الأول الثانوي</option>
+                        <option value="الصف الثاني الثانوي">الصف الثاني الثانوي</option>
+                        <option value="الصف الثالث الثانوي">الصف الثالث الثانوي</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">السعر (بالجنيه المصري)</label>
+                    <input type="number" name="Price" class="form-input" placeholder="500" min="0" step="0.01" required />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">مدة الدورة (بالساعات)</label>
+                    <input type="number" name="Duration" class="form-input" placeholder="40" min="1" step="0.5" required />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">عدد المحاضرات</label>
+                    <input type="number" name="Num_Of_Lectures" class="form-input" placeholder="20" min="1" required />
+                </div>
+
+                <input type="hidden" name="Creation_Date" value="@DateTime.Now" />
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px; font-size: 18px;">
+                    إنشاء الدورة
+                </button>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <a asp-action="Dashboard" style="color: var(--text-secondary);">إلغاء</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

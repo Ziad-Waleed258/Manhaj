@@ -1,0 +1,77 @@
+@model Manhaj.Models.Question
+
+@{
+    ViewData["Title"] = "تعديل السؤال";
+    Layout = "_DashboardLayout";
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div class="section-header">
+            <h2 class="section-title">تعديل السؤال</h2>
+            <p class="section-subtitle">الاختبار: @Model.Quiz.Title</p>
+        </div>
+
+        <div class="dashboard-card">
+            <form asp-action="EditQuestion" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@Model.Id" />
+                
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">نص السؤال</label>
+                    <textarea name="content" class="form-input" style="width: 100%; min-height: 100px;" required>@Model.Content</textarea>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">الإجابة الصحيحة</label>
+                    <input type="text" name="trueAnswer" class="form-input" style="width: 100%;" value="@Model.TrueAnswer" required />
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">النقاط</label>
+                    <input type="number" name="points" class="form-input" style="width: 200px;" value="@Model.Points" step="0.5" min="0" required />
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 15px;">الخيارات</label>
+                    <div id="options-container" style="display: flex; flex-direction: column; gap: 10px;">
+                        @for (int i = 0; i < Model.Options.Count; i++)
+                        {
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" name="options" class="form-input" style="flex: 1;" value="@Model.Options.ElementAt(i).Content" placeholder="الخيار @(i + 1)" required />
+                                @if (i >= 2)
+                                {
+                                    <button type="button" onclick="this.parentElement.remove()" class="btn btn-outline" style="padding: 8px 12px;">حذف</button>
+                                }
+                            </div>
+                        }
+                    </div>
+                    <button type="button" onclick="addOption()" class="btn btn-outline" style="margin-top: 10px;">+ إضافة خيار</button>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-top: 30px;">
+                    <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+                    <a asp-action="Details" asp-route-id="@Model.QuizId" class="btn btn-outline">إلغاء</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    let optionCount = @Model.Options.Count;
+    function addOption() {
+        optionCount++;
+        const container = document.getElementById('options-container');
+        const div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.gap = '10px';
+        div.innerHTML = `
+            <input type="text" name="options" class="form-input" style="flex: 1;" placeholder="الخيار ${optionCount}" required />
+            <button type="button" onclick="this.parentElement.remove()" class="btn btn-outline" style="padding: 8px 12px;">حذف</button>
+        `;
+        container.appendChild(div);
+    }
+</script>

@@ -1,0 +1,62 @@
+@model Manhaj.Models.Course
+@{
+    ViewData["Title"] = "شراء دورة - " + Model.Title;
+    Layout = "_DashboardLayout";
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <div class="dashboard-card">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+
+            <h2 class="section-title" style="margin-bottom: 20px;">شراء دورة: @Model.Title</h2>
+            <div style="background: #fff3cd; border: 1px solid #ffc107; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                <h3 style="color: #856404; margin-bottom: 15px;">تعليمات الدفع</h3>
+                <p style="color: #856404; margin-bottom: 10px;">
+                    <strong>1.</strong> قم بتحويل مبلغ <strong style="font-size: 20px; color: var(--primary-color);">@Model.Price جنيه</strong> عبر فودافون كاش إلى الرقم:
+                </p>
+                <p style="font-size: 24px; font-weight: 700; color: var(--primary-color); text-align: center; margin: 15px 0;">
+                    01010049668
+                </p>
+                <p style="color: #856404; margin-bottom: 10px;">
+                    <strong>2.</strong> التقط صورة (screenshot) لعملية التحويل الناجحة
+                </p>
+                <p style="color: #856404;">
+                    <strong>3.</strong> ارفع الصورة أدناه وانتظر موافقة المسؤول
+                </p>
+            </div>
+
+            <form asp-controller="Student" asp-action="PurchaseCourse" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="courseId" value="@Model.Id" />
+                
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">صورة التحويل (Screenshot)</label>
+                    <input type="file" name="paymentProof" class="form-control" accept="image/*" required 
+                           style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" />
+                </div>
+
+                <div style="display: flex; gap: 15px; justify-content: space-between;">
+                    <a asp-controller="Student" asp-action="Course" asp-route-id="@Model.Id" 
+                       class="btn btn-outline" style="flex: 1;">
+                        إلغاء
+                    </a>
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">
+                        إرسال طلب الشراء
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

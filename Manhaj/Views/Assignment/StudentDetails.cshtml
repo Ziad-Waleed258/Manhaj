@@ -1,0 +1,112 @@
+@model Manhaj.Models.Assignment
+@{
+    ViewData["Title"] = Model.Title;
+    var submission = ViewBag.Submission as Manhaj.Models.Student_Assignment;
+    var isExpired = DateTime.Now > Model.Deadline;
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <div class="dashboard-card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px;">
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 10px;">@Model.Title</h2>
+                    <p style="color: var(--text-secondary);">
+                        تابع لمحاضرة: <a asp-controller="Student" asp-action="Course" asp-route-id="@Model.Lecture.CourseID" style="color: var(--primary-color);">@Model.Lecture.Title</a>
+                    </p>
+                </div>
+                <div style="text-align: left;">
+                    <div style="font-weight: 600; color: @(isExpired ? "#dc3545" : "#28a745");">
+                        @(isExpired ? "انتهى الموعد" : "متاح للتسليم")
+                    </div>
+                    <div style="color: var(--text-secondary); font-size: 14px;">
+                        آخر موعد: @Model.Deadline.ToString("yyyy/MM/dd HH:mm")
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h4 style="margin-bottom: 10px;">تفاصيل الواجب:</h4>
+                <p style="white-space: pre-wrap;">@Model.Description</p>
+                
+                @if (!string.IsNullOrEmpty(Model.MediaUrl))
+                {
+                    <div style="margin-top: 15px;">
+                        <a href="@Model.MediaUrl" target="_blank" class="btn btn-outline" style="font-size: 14px;">
+                            📎 رابط مرفق
+                        </a>
+                    </div>
+                }
+            </div>
+
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #e0e0e0;" />
+
+            <h3 style="margin-bottom: 20px;">تسليم الواجب</h3>
+
+            @if (submission != null)
+            {
+                <div style="background: #e8f4f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4 style="margin-bottom: 5px; color: var(--primary-color);">تم التسليم</h4>
+                            <p style="margin: 0; font-size: 14px; color: var(--text-secondary);">
+                                بتاريخ: @submission.SubmissionDate?.ToString("yyyy/MM/dd HH:mm")
+                            </p>
+                            <div style="margin-top: 10px;">
+                                <a href="~/@submission.SubmissionPath" target="_blank" style="color: var(--primary-color); text-decoration: underline;">
+                                    📥 تحميل الملف المسلم
+                                </a>
+                            </div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 14px; color: var(--text-secondary);">الدرجة</div>
+                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-color);">
+                                @(submission.Grade > 0 ? submission.Grade.ToString("0.##") : "-")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (!isExpired)
+            {
+                <form asp-action="Submit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="assignmentId" value="@Model.Id" />
+                    
+                    <div class="form-group">
+                        <label class="form-label">ملف الحل</label>
+                        <input type="file" name="file" class="form-control" required />
+                        <span style="font-size: 14px; color: var(--text-secondary); display: block; margin-top: 5px;">
+                            يرجى رفع ملف الحل (PDF, Word, Image)
+                        </span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        @(submission != null ? "تحديث التسليم (رفع ملف جديد)" : "تسليم الواجب")
+                    </button>
+                </form>
+            }
+            else if (submission == null)
+            {
+                <div style="text-align: center; padding: 20px; background: #fff3cd; color: #856404; border-radius: 8px;">
+                    عذراً، لم يعد بإمكانك تسليم هذا الواجب لانتهاء الموعد المحدد.
+                </div>
+            }
+        </div>
+    </div>
+</section>

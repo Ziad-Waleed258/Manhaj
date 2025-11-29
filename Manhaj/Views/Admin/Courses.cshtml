@@ -1,0 +1,73 @@
+@model List<Manhaj.Models.Course>
+@{
+    ViewData["Title"] = "إدارة الدورات";
+    Layout = "_DashboardLayout";
+}
+
+<section class="section" style="background: var(--background-gray); min-height: 80vh; padding: 40px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <div class="section-header">
+            <h2 class="section-title">إدارة الدورات</h2>
+            <p class="section-subtitle">عرض وإدارة جميع الدورات على المنصة</p>
+        </div>
+
+        <div class="dashboard-card">
+            @if (Model.Any())
+            {
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--background-gray); font-weight: 600;">
+                                <th style="padding: 12px; text-align: right;">العنوان</th>
+                                <th style="padding: 12px; text-align: right;">المعلم</th>
+                                <th style="padding: 12px; text-align: right;">المستوى</th>
+                                <th style="padding: 12px; text-align: right;">السعر</th>
+                                <th style="padding: 12px; text-align: right;">الطلاب</th>
+                                <th style="padding: 12px; text-align: right;">المحاضرات</th>
+                                <th style="padding: 12px; text-align: right;">تاريخ الإنشاء</th>
+                                <th style="padding: 12px; text-align: right;">إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var course in Model)
+                            {
+                                <tr style="border-bottom: 1px solid #e0e0e0;">
+                                    <td style="padding: 12px;">
+                                        <strong>@course.Title</strong>
+                                    </td>
+                                    <td style="padding: 12px;">@(course.Teacher?.FirstName ?? "غير معروف") @(course.Teacher?.LastName ?? "")</td>
+                                    <td style="padding: 12px;">@course.level</td>
+                                    <td style="padding: 12px;">@course.Price.ToString("N0") جنيه</td>
+                                    <td style="padding: 12px; text-align: center;">@course.Course_Registrations.Count</td>
+                                    <td style="padding: 12px; text-align: center;">@course.Lectures.Count</td>
+                                    <td style="padding: 12px;">@course.Creation_Date.ToString("yyyy-MM-dd")</td>
+                                    <td style="padding: 12px;">
+                                        <form asp-action="DeleteCourse" asp-route-id="@course.Id" method="post" onsubmit="return confirm('هل أنت متأكد من حذف هذه الدورة؟ سيتم حذف جميع المحاضرات والواجبات المرتبطة بها.');">
+                                            <button type="submit" class="btn btn-outline" style="color: #dc3545; border-color: #dc3545; padding: 5px 10px; font-size: 14px;">
+                                                🗑️ حذف
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p style="text-align: center; color: var(--text-secondary); padding: 40px;">
+                    لا توجد دورات متاحة حالياً
+                </p>
+            }
+        </div>
+    </div>
+</section>
